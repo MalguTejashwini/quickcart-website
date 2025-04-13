@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy & Meat - QuickCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .add-to-cart:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-counter {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc2626;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-shopping-basket text-2xl text-green-600"></i>
+                <a href="index.html" class="text-2xl font-bold text-gray-800">QuickCart</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-green-600">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-green-600 relative">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.php" class="text-gray-600 hover:text-green-600 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCounter" class="cart-counter hidden">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-4">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-green-600">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                        <a href="categories.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-green-600 md:ml-2">Categories</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Dairy & Meat</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Category Header -->
+    <section class="py-8 bg-green-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Dairy & Meat</h1>
+                    <p class="text-gray-600">Fresh dairy products and quality meats</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <div class="relative">
+                        <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent">
+                            <option>Sort by: Popularity</option>
+                            <option>Sort by: Price Low to High</option>
+                            <option>Sort by: Price High to Low</option>
+                            <option>Sort by: Newest</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dairy & Meat Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Milk -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fresh Milk" class="w-full h-48 object-cover">
+                        <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Daily</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Cow Milk</h3>
+                        <p class="text-sm text-gray-500 mb-3">Pasteurized, rich in calcium</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹60</span>
+                                <span class="block text-xs text-gray-500 mt-1">1 liter</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eggs -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Eggs" class="w-full h-48 object-cover">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Farm Fresh</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Farm Fresh Eggs</h3>
+                        <p class="text-sm text-gray-500 mb-3">Brown eggs, pack of 6</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹75</span>
+                                <span class="block text-xs text-gray-500 mt-1">6 pieces</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chicken -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="Chickenmeat.png" alt="Chicken" class="w-full h-48 object-cover">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">10% OFF</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Chicken</h3>
+                        <p class="text-sm text-gray-500 mb-3">Skinless, boneless breast pieces</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹220</span>
+                                <span class="text-xs text-gray-500 line-through ml-1">₹245</span>
+                                <span class="block text-xs text-gray-500 mt-1">500g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paneer -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="paneer.jpg" alt="Paneer" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Paneer</h3>
+                        <p class="text-sm text-gray-500 mb-3">Homemade cottage cheese</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹180</span>
+                                <span class="block text-xs text-gray-500 mt-1">250g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Butter -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Butter" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Amul Butter</h3>
+                        <p class="text-sm text-gray-500 mb-3">Pure and creamy</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹50</span>
+                                <span class="block text-xs text-gray-500 mt-1">100g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yogurt -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="fresh-yogurt-1502361911-3214328.jpeg" alt="Yogurt" class="w-full h-48 object-cover">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Probiotic</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Yogurt</h3>
+                        <p class="text-sm text-gray-500 mb-3">Creamy and probiotic-rich</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹40</span>
+                                <span class="block text-xs text-gray-500 mt-1">400g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cheese -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="Mozzarella-cheese-1.jpg" alt="Cheese" class="w-full h-48 object-cover">
+                        <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Imported</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Mozzarella Cheese</h3>
+                        <p class="text-sm text-gray-500 mb-3">Perfect for pizzas and pasta</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹250</span>
+                                <span class="block text-xs text-gray-500 mt-1">200g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peda -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="peda.jpg" alt="rice" class="w-full h-48 object-cover">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Premium</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Peda</h3>
+                        <p class="text-sm text-gray-500 mb-3">Tender and flavorful</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹450</span>
+                                <span class="block text-xs text-gray-500 mt-1">500g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <!-- Footer content -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize cart if not exists
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+    
+            // Update cart counter
+            updateCartCounter();
+    
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+    
+                    const productCard = this.closest('.product-card');
+                    const productId = productCard.querySelector('h3').textContent.trim().toLowerCase().replace(/\s+/g, '-');
+                    const productName = productCard.querySelector('h3').textContent.trim();
+                    const productPrice = productCard.querySelector('.price').textContent.trim();
+                    const cart = JSON.parse(localStorage.getItem('cart'));
+    
+                    const existingItemIndex = cart.findIndex(item => item.id === productId);
+    
+                    if (existingItemIndex >= 0) {
+                        // Item exists - increase quantity by 1
+                        cart[existingItemIndex].quantity += 1;
+                        showNotification(cart[existingItemIndex], true);
+                    } else {
+                        // New item
+                        const newItem = {
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        };
+                        cart.push(newItem);
+                        showNotification(newItem, false);
+                    }
+    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCounter();
+                });
+            });

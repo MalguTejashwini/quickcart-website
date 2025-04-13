@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fruits - QuickCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .add-to-cart:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-counter {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc2626;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-shopping-basket text-2xl text-green-600"></i>
+                <a href="index.html" class="text-2xl font-bold text-gray-800">QuickCart</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-green-600">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-green-600 relative">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.php" class="text-gray-600 hover:text-green-600 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCounter" class="cart-counter hidden">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-8 bg-green-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Fresh Fruits</h1>
+                    <p class="text-gray-600">Seasonal fruits delivered fresh from farms to your doorstep</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <div class="relative">
+                        <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent">
+                            <option>Sort by: Popularity</option>
+                            <option>Sort by: Price Low to High</option>
+                            <option>Sort by: Price High to Low</option>
+                            <option>Sort by: Newest</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fruits Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Apple -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fresh Apples" class="w-full h-48 object-cover">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">20% OFF</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Apples</h3>
+                        <p class="text-sm text-gray-500 mb-3">Premium quality, juicy and crisp</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹120</span>
+                                <span class="text-xs text-gray-500 line-through ml-1">₹150</span>
+                                <span class="block text-xs text-gray-500 mt-1">1kg</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banana -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="bananaimage.jpg" alt="Bananas" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Organic Bananas</h3>
+                        <p class="text-sm text-gray-500 mb-3">Naturally sweet and creamy</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹60</span>
+                                <span class="block text-xs text-gray-500 mt-1">6 pieces</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orange -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Oranges" class="w-full h-48 object-cover">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">10% OFF</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Juicy Oranges</h3>
+                        <p class="text-sm text-gray-500 mb-3">Sweet and tangy, packed with Vitamin C</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹90</span>
+                                <span class="text-xs text-gray-500 line-through ml-1">₹100</span>
+                                <span class="block text-xs text-gray-500 mt-1">1kg</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mango -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="alphanso.jpg" alt="Mangoes" class="w-full h-48 object-cover">
+                        <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">Seasonal</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Alphonso Mangoes</h3>
+                        <p class="text-sm text-gray-500 mb-3">The king of fruits, sweet and aromatic</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹250</span>
+                                <span class="block text-xs text-gray-500 mt-1">1kg</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grapes -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="grapes.jpg" alt="Grapes" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Black Grapes</h3>
+                        <p class="text-sm text-gray-500 mb-3">Seedless, sweet and juicy</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹180</span>
+                                <span class="block text-xs text-gray-500 mt-1">500g</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pomegranate -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="pomegranate.jpg" alt="Pomegranate" class="w-full h-48 object-cover">
+                        <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">15% OFF</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Pomegranate</h3>
+                        <p class="text-sm text-gray-500 mb-3">Rich in antioxidants and vitamins</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹140</span>
+                                <span class="text-xs text-gray-500 line-through ml-1">₹165</span>
+                                <span class="block text-xs text-gray-500 mt-1">3 pieces</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kiwi -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="kiwi.jpg" alt="Kiwi" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Kiwi Fruit</h3>
+                        <p class="text-sm text-gray-500 mb-3">Tart and sweet, rich in Vitamin C</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹200</span>
+                                <span class="block text-xs text-gray-500 mt-1">4 pieces</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watermelon -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="watermelon.jpg" alt="Watermelon" class="w-full h-48 object-cover">
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded absolute top-2 left-2">New</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-1">Fresh Watermelon</h3>
+                        <p class="text-sm text-gray-500 mb-3">Juicy and refreshing, perfect for summer</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-green-600 font-bold">₹80</span>
+                                <span class="block text-xs text-gray-500 mt-1">1kg</span>
+                            </div>
+                            <button class="add-to-cart bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition-transform">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <!-- Footer content -->
+    </footer>
+
+
+    <!-- Rest of your HTML remains the same until the script section -->
+
+    <script>
+        // Cart functionality - No auto-redirect version
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart if not exists
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+
+            // Update cart counter
+            updateCartCounter();
+
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const productCard = this.closest('.product-card');
+                    const productId = productCard.querySelector('h3').textContent.trim().toLowerCase().replace(/\s+/g, '-');
+                    const cart = JSON.parse(localStorage.getItem('cart'));
+                    const existingItemIndex = cart.findIndex(item => item.id === productId);
+
+                    if (existingItemIndex >= 0) {
+                        // Item exists - increase quantity by 1
+                        cart[existingItemIndex].quantity += 1;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        showNotification(cart[existingItemIndex], true);
+                    } else {
+                        // New item - add with quantity 1
+                        const product = {
+                            id: productId,
+                            name: productCard.querySelector('h3').textContent,
+                            price: productCard.querySelector('.font-bold').textContent,
+                            originalPrice: productCard.querySelector('.line-through') ?
+                                productCard.querySelector('.line-through').textContent.replace('₹', '') : productCard.querySelector('.font-bold').textContent.replace('₹', ''),
+                            quantity: 1,
+                            image: productCard.querySelector('img').src,
+                            weight: productCard.querySelector('.text-xs:not(.line-through)').textContent
+                        };
+                        cart.push(product);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        showNotification(product, false);
+                    }
+
+                    updateCartCounter();
+
+                    // Removed the automatic redirection code
+                });
+            });
+
+            function updateCartCounter() {
+                const cart = JSON.parse(localStorage.getItem('cart'));
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                const cartCounter = document.getElementById('cartCounter');
+
+                cartCounter.textContent = totalItems;
+                if (totalItems > 0) {
+                    cartCounter.classList.remove('hidden');
+                } else {
+                    cartCounter.classList.add('hidden');
+                }
+            }
+
+            function showNotification(product, isExisting) {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.cart-notification');
+                existingNotifications.forEach(notification => notification.remove());
+
+                // Create new notification
+                const notification = document.createElement('div');
+                notification.className = 'cart-notification fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-md shadow-lg flex items-center animate-fade-in';
+                notification.innerHTML = `
+                    <i class="fas fa-check-circle mr-2"></i>
+                    ${isExisting ? 'Quantity increased for' : 'Added'} ${product.name} to cart - ${product.price}
+                    <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+
+                document.body.appendChild(notification);
+
+                // Auto-remove after 3 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.classList.remove('animate-fade-in');
+                        notification.classList.add('animate-fade-out');
+                        setTimeout(() => notification.remove(), 300);
+                    }
+                }, 3000);
+            }
+        });
+
+        // Animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-out;
+            }
+            .animate-fade-out {
+                animation: fadeOut 0.3s ease-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
